@@ -1,0 +1,8 @@
+if (line != NULL)
+{
+	errorcode = 0;
+}
+else 
+{
+	errorcode = 2;
+}

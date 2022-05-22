@@ -1,0 +1,1 @@
+int exampleResult1 = 42;

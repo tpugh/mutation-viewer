@@ -1,0 +1,4 @@
+else 
+{
+	exampleResult1 = pow((50/5),(a - b));
+}
