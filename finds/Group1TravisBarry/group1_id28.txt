@@ -1,0 +1,12 @@
+int getFactorialOfTwo()
+{
+	int result = 0;
+	int factorialBase = 2;
+	int currentMultiplier = factorialBase;
+	for (int x=factorialBase;x>1;x--)
+	{
+		result = currentMultiplier * (currentMultiplier - 1);
+		currentMultiplier++;
+	}
+	return result;
+}
