@@ -1,8 +1,0 @@
-if (line != NULL)
-{
-	errorcode = 1;
-}
-else 
-{
-	errorcode = 0;
-}
