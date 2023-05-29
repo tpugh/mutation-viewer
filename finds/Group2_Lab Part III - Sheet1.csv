@@ -1,0 +1,463 @@
+ID (Count),File Name,Code Block,Equivalent Mutant
+1,BinarySearch.c,"int tmp = (int) end / 2;
+    /* divide array length in half */
+    /* if number is greater than element in half, do search by start to tmp
+         * else search by tmp to end
+     */
+        if(number == array[tmp]) {
+                return 0;
+        } else if(number > array[tmp]) {
+                return binarySearch(array, number, start, tmp);
+        } else {
+                return binarySearch(array, number, tmp, end);
+        }",Replaced > with >=
+2,permutation.c,"while (1) {
+                /* find largest k such that a[k - 1] < a[k] */
+                for (p = A(n - 1); (void*)p > a; p = q)
+                        if (_cmp(q = p - msize, p) > 0)
+                                break;
+ 
+                if ((void*)p <= a) break;
+ 
+                /* find largest l such that a[l] > a[k - 1] */
+                for (p = A(n - 1); p > q; p-= msize)
+                        if (_cmp(q, p) > 0) break;
+ 
+                swap(p, q); /* swap a[k - 1], a[l] */
+                /* flip a[k] through a[end] */
+                for (q += msize, p = A(n - 1); q < p; q += msize, p -= msize)
+                        swap(p, q);
+        }",Replaced 1 with 2
+3,oddOrPos.c,"int oddOrPos (int x[], int length)
+{  
+   /* Effects: return the number of elements in x that
+        are either odd or positive (or both) */
+           int count = 0;
+        int i;
+           for (i = 0; i < length; i++) {
+                if (x[i] % 2 == 1 || x[i] % 2 == -1 || x[i] > 0) {
+                        count++;
+                }
+        }
+           return count;
+}",Replaced == with >=
+4,oddOrPos.c,"int oddOrPos (int x[], int length)
+{  
+   /* Effects: return the number of elements in x that
+        are either odd or positive (or both) */
+           int count = 0;
+        int i;
+           for (i = 0; i < length; i++) {
+                if (x[i] % 2 == 1 || x[i] % 2 == -1 || x[i] > 0) {
+                        count++;
+                }
+        }
+           return count;
+}",Replaced == with <=
+5,bubble.c,"int main()
+{
+  int array[100], n, c, d, swap;
+ 
+  printf(""Enter number of elements\n"");
+  scanf(""%d"", &n);
+ 
+  printf(""Enter %d integers\n"", n);
+ 
+  for (c = 0; c < n; c++)
+    scanf(""%d"", &array[c]);
+ 
+  for (c = 0 ; c < ( n - 1 ); c++)
+  {
+    for (d = 0 ; d < n - c - 1; d++)
+    {
+      if (array[d] > array[d+1]) /* For decreasing order use < */
+      {
+        swap       = array[d];
+        array[d]   = array[d+1];
+        array[d+1] = swap;
+      }
+    }
+  }
+ 
+  printf(""Sorted list in ascending order:\n"");
+ 
+  for ( c = 0 ; c < n ; c++ )
+     printf(""%d\n"", array[c]);
+ 
+  return 0;
+}",Replaced 0 with 1
+6,flex.c,"if ( yymore_really_used == true )
+                yymore_used = true;
+        else if ( yymore_really_used == false )
+                yymore_used = false;
+
+",Replaced == with >=
+7,flex.c,"if ( yymore_really_used == true )
+                yymore_used = true;
+        else if ( yymore_really_used == false )
+                yymore_used = false;
+
+",Replaced == with <=
+8,flex.c,"if ( yymore_really_used == true )
+                yymore_used = true;
+        else if ( yymore_really_used == false )
+                yymore_used = false;
+
+",Replaced == with >=
+9,flex.c,"if ( yymore_really_used == true )
+                yymore_used = true;
+        else if ( yymore_really_used == false )
+                yymore_used = false;
+
+",Replaced == with <=
+10,flex.c,"if ( interactive == false )
+                        putc( 'B', err );",Replaced == with <=
+11,flex.c,"if ( interactive == true )
+                        putc( 'I', err );",Replaced == with >=
+12,flex.c,"if ( reject_really_used == true )
+                reject = true;
+        else if ( reject_really_used == false )
+                reject = false;",Replaced == with >=
+13,flex.c,"if ( reject_really_used == true )
+                reject = true;
+        else if ( reject_really_used == false )
+                reject = false;",Replaced == with <=
+14,flex.c,"if ( csize == unspecified )
+                        /* We encountered an error fairly early on, so csize
+                         * never got specified.  Define it now, to prevent
+                         * bogus table sizes being written out below.
+                         */
+                        csize = 256;",Replaced == with <=
+15,flex.c,"if ( interactive == unspecified )
+                {
+                if ( fulltbl || fullspd )
+                        interactive = false;
+                else
+                        interactive = true;
+                }",Replaced == with <=
+16,flex.c,"if ( csize == unspecified )
+                        /* We encountered an error fairly early on, so csize
+                         * never got specified.  Define it now, to prevent
+                         * bogus table sizes being written out below.
+                         */
+                        csize = 256;",Replaced 256 with 255
+17,flex.c,"if ( csize == unspecified )
+                        /* We encountered an error fairly early on, so csize
+                         * never got specified.  Define it now, to prevent
+                         * bogus table sizes being written out below.
+                         */
+                        csize = 256;",Replaced 256 with 257
+18,flex.c,"if ( csize == unspecified )
+                {
+                if ( (fulltbl || fullspd) && ! useecs )
+                        csize = DEFAULT_CSIZE;
+                else
+                        csize = CSIZE;
+                }",Replaced == with <=
+19,flex.c,"if ( interactive == unspecified )
+                {
+                if ( fulltbl || fullspd )
+                        interactive = false;
+                else
+                        interactive = true;
+                }",Replaced == with <=
+20,max.c,"int max(int x, int y)
+{
+        if (x > y)
+        return x;
+        else
+        return y;
+}",Replaced > with >=
+21,year.c,"int main()
+{
+int i;
+for (i=Jan; i<=Dec; i++)        
+        printf(""%d "", i);
+                
+return 0;
+}",Replaced 0 with 1
+22,round_robin.c,"for(total = 0, i = 0; x != 0;)
+      {
+            if(temp[i] <= time_quantum && temp[i] > 0)
+            {
+                  total = total + temp[i];
+                  temp[i] = 0;
+                  counter = 1;
+            }",Replaced != with >
+23,round_robin.c,"for(total = 0, i = 0; x != 0;)
+      {
+            if(temp[i] <= time_quantum && temp[i] > 0)
+            {
+                  total = total + temp[i];
+                  temp[i] = 0;
+                  counter = 1;
+            }",Replaced != with >=
+24,even_or_not.c,"if (num % 2 == 0)
+                // jump to even
+                goto even;
+        else
+                // jump to odd
+                goto odd;",Replaced == with <=
+25,even_or_not.c,"int main() {
+        int num = 26;
+        checkEvenOrNot(num);
+        return 0;
+}",Replaced 0 with 1
+26,line_count.c,"if (file == NULL)
+    {
+        printf(""The file doesn't exist ! Please check again ."");
+        return 0;
+    }",Replaced 0 with 1
+27,line_count.c,"printf(""Total number of lines are : %d\n"", totalLinesCount);
+    return 0;
+}",Replaced 0 with 1
+28,hash.c,"while(hashArray[hashIndex] != NULL && hashArray[hashIndex]->key != -1) {
+      //go to next cell
+      ++hashIndex;
+                
+      //wrap around the table
+      hashIndex %= SIZE;
+   }",Replaced != with >=
+29,hash.c,"int i = 0;
+        
+   for(i = 0; i<SIZE; i++) {",Replaced 0 with 1
+30,hash.c,"int i = 0;
+        
+   for(i = 0; i<SIZE; i++) {",Replaced 0 with -1
+31,CheckPalindrome.c,"  high--;
+    }
+    return 1; /* The string is a palindrome*/
+  }",Replaced 1 with 2
+32,findVal.c,"printf(""The LAST occurrence of %d is: %d\n"", integer, findVal(inArr, argc - 2, integer));
+        return 0;
+}",Replaced 0 with 1
+33,increment_number.c,"     printf(""%d\n"", num); // Print the current Value of num
+    }
+    return 0;",Replaced 0 with 1
+34,DynamicTwoDArrayUsingArrayOfPointer.c,"int main() {
+    int r = 3, c = 4, i, j, count;
+    int * arr[r];
+    for (i = 0; i < r; i++)
+",Replaced 3 with 4
+35,DynamicTwoDArrayUsingArrayOfPointer.c,"int main() {
+    int r = 3, c = 4, i, j, count;
+    int * arr[r];
+    for (i = 0; i < r; i++)
+",Replaced 3 with 2
+36,DynamicTwoDArrayUsingArrayOfPointer.c,"int main() {
+    int r = 3, c = 4, i, j, count;
+    int * arr[r];
+    for (i = 0; i < r; i++)
+",Replaced 4 with 5
+37,DynamicTwoDArrayUsingArrayOfPointer.c,"int main() {
+    int r = 3, c = 4, i, j, count;
+    int * arr[r];
+    for (i = 0; i < r; i++)
+",Replaced 4 with 3
+38,DigitalRoot.c,"temp = number;
+   while(temp != 0) {
+      int digit = temp % 10;
+      droot += digit;
+      temp /=10;",Replace != with >
+39,DigitalRoot.c," while(temp != 0) {
+      int digit = temp % 10;
+      droot += digit;
+      temp /=10;
+      if(temp == 0 && droot > 9) {
+         temp = droot;
+         droot = 0;
+      }
+   }",Replace == with <=
+40,DigitalRoot.c,"}
+   printf(""The digital root of %u is %u\n"", number, droot);
+   return 0;
+}",Replaced 0 with 1
+41,Diagonal-Difference.c,"{
+        printf(""%d"", (-((sum1)-(sum2))));
+    }
+    else
+    {
+        printf(""%d"", ((sum1)-(sum2)));
+    } 
+    return 0; 
+}",Replaced 0 with 1
+42,DecrementOperator.c,"c = a--;
+    printf(""Value of b = %d\n Value of c = %d\n"", b,c);
+    return 0;
+}",Replaced 0 with 1
+43,DecimalToBinary.c,"// firstOne is a flag that stops ""0"" being printed before a ""1"" is printed
+    int firstOne = 0;
+    // Conversion loop
+    while (power > 0) {
+      if (num >= power) {
+        firstOne = 1;
+        printf(""1"");",Replaced 0 with -1
+44,DailyWageCalc.c,"printf(""Amount incurred by worker : %d"", amount);
+    return 0;
+}",Replaced 0 with 1
+45,BinarySearch.c,"printf(""%d\n"", binarySearch(arr, 24, 0, size_of_array-1));
+        /* Check if 118 is into arr */
+        printf(""%d\n"", binarySearch(arr, 118, 0, size_of_array-1));
+        return 0;
+}",Replaced 0 with 1
+46,printtokens.c,"if(check_delimiter(ch)!=TRUE)
+        {   /* Error case */
+            token_ptr->token_id=ERROR;",Replaced != with < 
+47,permutation.c,"for (i = 0; i < 5; i++)
+                printf(""%s   "", strs[i]);
+        return 0;",Replaced 0 with 1
+48,cycle.c,"show_array(arr, arr_k);
+  printf(""writes: %d\n"", writes);
+ 
+  return 0;
+}",Replaced 0 with 1
+49,shaker.c,"void cocktailsort(int *a, size_t n) {
+        while(1) {
+                // packing two similar loops into one
+                char flag;
+                int it, i;
+                size_t start[2] = {1, n - 1},
+                end[2] = {n, 0},
+                           inc[2] = {1, -1};
+                for(it = 0; it < 2; ++it) {
+                        flag = 1;
+                        for(i = start[it]; i != end[it]; i += inc[it])
+                                if(a[i - 1] > a[i]) {
+                                        swap(a + i - 1, a + i);
+                                        flag = 0;
+                                }
+                        if(flag)
+                                return;
+                }
+        }
+}",Replaced 1 with 2
+50,heap.c,"void main(int argc, char *argv[]) {
+int i;
+        for(i=1;i<argc;i++) 
+        {
+                a[i] = argv[i+1];
+        } 
+        printf(""%d\n"", isSorted(a, argc-1) );
+        sort(a,argc-1);
+        printf(""***************** Sorted Strings *****************\n"");
+        show(a,argc-1);
+}","Replaced i = 1 with i = 0
+
+Replaced a[i-1] = argv[i] with a[i] = argv[i+1]"
+51,heap.c,"
+int less01(char *pq[], int i, int j) {
+        if(strcmp(pq[i-1],pq[j-1]) <= 0)
+                return 1;
+        else return 0;
+}",Replaced < with <=
+52,ccfilter.c,"COMPILER = -1;
+                for (j=1; j<=COMPILER_QTY; j++)
+                    if (  (strcmp(argv[i], COMPILER_Names[j][0]) == 0) ||
+                          ( (argv[i][0] == '_') &&
+                            (strcmp(&argv[i][1], COMPILER_Names[j][0]) == 0) )  )
+                        COMPILER = j;",Replaced j<COMPILER_QTY with  j<=COMPILER_QTY
+53,ccfilter.c,"
+int ShowUsage( char *szError )
+{ int i;
+  fprintf( stderr, USAGE );
+  fprintf( stderr, ""Current default <COMPILER>: %s\n"",
+                   COMPILER_Names[COMPILER_DEFAULT][0] );
+  fprintf( stderr, ""Acceptable parameters for <COMPILER> are:\n"" );
+  for (i=1; i < COMPILER_QTY; i++)
+      fprintf( stderr, ""     %-15.15s     %s\n"",
+                       COMPILER_Names[i][0],
+                       COMPILER_Names[i][1] );
+  fprintf(stderr, szError);
+  return 0;
+}",Replaced i < COMPILER_QTY to i <= COMPILER_QTY
+54,bin.c,"
+#include<stdio.h>
+void bin(unsigned n)
+{
+    unsigned i;
+    for (i = 1 << 30; i > 0; i = i / 2)
+        (n & i) ? printf(""1"") : printf(""0"");
+}
+ 
+int main(void)
+{
+    bin(7);
+    printf(""\n"");
+    bin(4);
+}",Replaced i = 1 << 31 to i = 1 << 30
+55,merge_sort.c,"
+/* Function to print the array */  
+void printArray(int a[], int n)  
+{  
+    int i;  
+    for (i = 0; i < n; i++)  
+        printf(""%d "", a[i]);  
+    printf(""\n"");  
+} ",Replace i = 1 to i = 0
+56,merge_sort.c,"
+void mergeSort(int a[], int beg, int end)  
+{  
+    if (beg < end)   
+    {  
+        int mid = (beg + end) / 2;  
+        mergeSort(a, beg, mid);  
+        mergeSort(a, mid + 1, end);  
+        merge(a, beg, mid, end);  
+    }  
+}  ",Replaced < with >=
+57,merge_sort.c,"  while (i < n1 && j < n2)    
+    {    
+        if(LeftArray[i] < RightArray[j])    
+        {    
+            a[k] = LeftArray[i];    
+            i++;    
+        }    
+        else    
+        {    
+            a[k] = RightArray[j];    
+            j++;    
+        }    
+        k++;    
+    }",Replaced <= with <
+58,line_count.c,"
+int main()
+{
+    //1
+    FILE *file;
+    //2
+    int totalLinesCount = 0;
+    char currentCharacter;
+    //3
+    file = fopen(""C://MyFile.txt"", ""r"");
+    //4
+    if (file != NULL)
+    {
+        printf(""The file doesn't exist ! Please check again ."");
+        return 0;
+    }",Replaced == with !=
+59,bogo.c,"int main()
+{
+  int x[] = { 1, 10, 9,  7, 3, 0 };
+  int i;
+  int len = sizeof(x)/sizeof(x[0]);
+  printf(""Original Array:\n"");
+  for (i = 0; i < len; i++)
+  printf(""%d%s"", x[i], i == len - 1 ? ""\n"" : "" "");  
+  printf(""\nSorted Array:\n"");
+  bogosort(x, 6);
+  for (i=0; i < 6; i++) printf(""%d "", x[i]);
+  printf(""\n"");
+}","Replaced ""for (i=0; i < 6; i++)"" with "" for (i=0; i < 5; i++)"""
+60,bogo.c,"int main()
+{
+  int x[] = { 1, 10, 9,  7, 3, 0 };
+  int i;
+  int len = sizeof(x)/sizeof(x[0]);
+  printf(""Original Array:\n"");
+  for (i = 0; i < len; i++)
+  printf(""%d%s"", x[i], i == len - 1 ? ""\n"" : "" "");  
+  printf(""\nSorted Array:\n"");
+  bogosort(x, 6);
+  for (i=0; i < 6; i++) printf(""%d "", x[i]);
+  printf(""\n"");
+}","Replaced ""for (i = 0; i < len; i++)"" with ""for (i = -; i <= len; i++)"""
